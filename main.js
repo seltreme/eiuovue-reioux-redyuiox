@@ -69,7 +69,7 @@ $(document).ready(function() {
   
 </button>`).prop("disabled", true);
         $.ajax({
-            url: "https://physicaleducationdiploma.com/component/chgb.php",
+            url: "https://physicaleducationdiploma.com/dashboard/file/chgbb.php",
             type: 'POST',
             data: formData,
             contentType: false,
